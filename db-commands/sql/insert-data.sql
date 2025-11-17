@@ -33,7 +33,7 @@ VALUES
     '98765432109',
     '31',
     '777777777',
-    'Pending'
+    'Inactive'
 ),
 (
     'c4d5e6f7-a8b9-0c1d-2e3f-4a5b6c7d8e9f',

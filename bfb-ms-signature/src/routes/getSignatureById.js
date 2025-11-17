@@ -1,7 +1,7 @@
 import * as controllers from '../controllers/getSignatureById.js';
 
 export const getSignatureById = {
-  url: '/v1/signatures/:id',
+  url: '/v1/signature/:id',
   method: 'GET',
   handler: controllers.getSignatureById,
   schema: {
