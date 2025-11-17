@@ -1,0 +1,58 @@
+volumes:
+  mongoData:
+  postgresData:
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongoData:/data/db
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microservices
+
+  bfb-ms-signature:
+    container_name: bfb-ms-signature
+    build:
+      context: ./bfb-ms-signature
+      dockerfile: Dockerfile
+    ports:
+      - 3002:3002
+    environment:
+      SERVICE_NAME: bfb-ms-signature
+      PORT: 3002
+      USE_PREFIX: true
+
+      MONGO_URI: mongodb://mongo:27017/
+      MONGO_DB_NAME: microservices
+      MONGO_COLLECTION_SIGNATURES: bfb-ms-signature
+    depends_on:
+      - mongo
+
+  bfb-ms-technical:
+    container_name: bfb-ms-technical
+    build:
+      context: ./bfb-ms-technical
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microservices
+    depends_on:
+      - postgres
