@@ -140,3 +140,98 @@ docker compose up --build
 ---
 
 # ✅ Pronto!
+
+# 🚀 Desafio
+
+Desenvolva um projeto que utilize os serviços disponíveis para criar um sistema que vincule assinaturas a técnicos.
+
+## Rota para elegibilidade da assinatura
+
+Crie uma rota que receba um ID de assinatura e valide se a assinatura é elegível para ser vinculada a um técnico.
+
+Dados que devem ser validados:
+
+- dna da assinatura deve ser 1 nas posições 62 e 85.
+
+se for elegível retornar o seguinte payload:
+```json
+  {
+    "status": 200,
+    "isEligible": true
+  }
+```
+
+se a assinatura não for elegível retornar o seguinte payload:
+```json
+  {
+    "status": 200,
+    "isEligible": false
+  }
+```
+
+se a assinatura não existir retornar o seguinte payload:
+```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "Signature not found"
+  }
+```
+
+## Rota de vinculação de assinatura a técnico
+
+Crie uma rota que receba um ID de assinatura e um ID de técnico, valide se o técnico está ativo e vincule a assinatura ao técnico.
+
+Dados que devem ser vinculados:
+
+- id do técnico
+- nome do técnico
+- email do técnico
+- id do cliente
+- nome do cliente
+- email do cliente
+- telefone do cliente
+
+se a assinatura não existir retornar o seguinte payload:
+```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "Signature not found"
+  }
+```
+
+se o técnico não existir retornar o seguinte payload:
+```json
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "Technical not found"
+  }
+```
+
+se o técnico não estiver ativo retornar o seguinte payload:
+```json
+  {
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Technical not active"
+  }
+```
+
+se a assinatura já estiver vinculada a um técnico retornar o seguinte payload:
+```json
+  {
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Signature already linked to technical"
+  }
+```
+
+se estiver tudo ok retornar o seguinte payload:
+```json
+  {
+    "status": 200,
+    "message": "Signature linked to technical"
+  }
+```
