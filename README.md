@@ -139,7 +139,6 @@ docker compose up --build
 
 ---
 
-# ✅ Pronto!
 
 # 🚀 Desafio
 
