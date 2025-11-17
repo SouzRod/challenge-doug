@@ -140,7 +140,7 @@ para parar o projeto basta executar:
 docker compose down
 ```
 
-3. Preencha os bancos de dados com os comandos que estão na pasta `db-commands`.
+3. Preencha os bancos de dados com os comandos que estão na pasta `db-commands` (esses comandos só precisam ser executados uma vez).
 
 4. Após a inicialização, acesse:
 
