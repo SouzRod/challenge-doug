@@ -1,14 +1,9 @@
 import { v4 } from 'uuid';
 
 export default ({ db, collectionName }) => ({
-  insert: async (item) => {
+  insertOne: async (item) => {
     const collection = await db.collection(collectionName);
-    const result = await collection.insertOne({ _id: v4(), ...item });
-    return result.insertedId;
-  },
-  update: async (filter, item) => {
-    const collection = await db.collection(collectionName);
-    return collection.updateOne(filter, { $set: item });
+    return collection.insertOne({ _id: v4(), ...item });
   },
   findOne: async (filter) => {
     const collection = await db.collection(collectionName);
@@ -17,6 +12,10 @@ export default ({ db, collectionName }) => ({
   findMany: async (filter) => {
     const collection = await db.collection(collectionName);
     return collection.find(filter).toArray();
+  },
+  updateOne: async (filter, item) => {
+    const collection = await db.collection(collectionName);
+    return collection.updateOne(filter, { $set: item });
   },
   deleteOne: async (filter) => {
     const collection = await db.collection(collectionName);
