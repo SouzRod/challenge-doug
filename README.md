@@ -1,4 +1,4 @@
-# Challenge Doug
+# Challenge beginner
 
 Este repositório contém dois microserviços independentes:
 - **bfb-ms-technical** – Serviço responsável por retornar informações de técnicos.
