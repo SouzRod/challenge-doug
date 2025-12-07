@@ -97,6 +97,8 @@ se estiver tudo ok retornar o seguinte payload:
 
 Crie uma rota que receba o ID do técnico e delete ele do banco
 
+Se não encontrar o técnico retornar erro de acordo. </br>
+
 se estiver tudo ok retornar o seguinte payload:
 ```json
   {
@@ -130,7 +132,7 @@ Crie uma rota que traga os dados completo do técnico que mais atendeu chamado. 
     "number": "11",
     "complement": ""
   },
-  "signatureList": {
+  "signatureList": [
     "49aade00-4761-4809-b37b-54e25a9768ce",
     "b6883881-d669-4614-9971-7e530a178c70",
     "ae5a26e6-48c1-46d9-bea7-3385fb2a2755",
@@ -141,6 +143,6 @@ Crie uma rota que traga os dados completo do técnico que mais atendeu chamado. 
     "fe5cee6f-dc42-4243-ac16-74a95fb2dac1",
     "33363160-c554-458d-8860-669134666bc7",
     "e09cdf4e-cde9-4c16-a307-82dc08fcba10"
-  }
+  ]
 }
 ```
