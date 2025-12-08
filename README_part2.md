@@ -98,6 +98,7 @@ se estiver tudo ok retornar o seguinte payload:
 Crie uma rota que receba o ID do técnico e delete ele do banco
 
 Se não encontrar o técnico retornar erro de acordo. </br>
+Se não encontrar o endereço retornar erro de acordo. </br>
 
 se estiver tudo ok retornar o seguinte payload:
 ```json
